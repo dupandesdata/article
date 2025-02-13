@@ -54,7 +54,6 @@ setup() {
 const handleFile = (event) => {
     const file = event.target.files[0]
     const reader = new FileReader()
-
     reader.onload = (e) => {
         // Konversi file Excel ke array buffer
         const data = new Uint8Array(e.target.result)
@@ -69,7 +68,6 @@ const handleFile = (event) => {
         tableHeaders.value = jsonData[0]
         tableData.value = jsonData.slice(1)
     }
-
     reader.readAsArrayBuffer(file)
 }
 `
