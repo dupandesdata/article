@@ -9,7 +9,7 @@ Excel Converter adalah aplikasi web yang memungkinkan pengguna untuk mengkonvers
 ## 2. Struktur Aplikasi
 
 ### 2.1 Dependensi Eksternal
-```html
+
 <!-- Vue.js untuk framework frontend -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/3.3.4/vue.global.min.js"></script>
 
@@ -24,7 +24,6 @@ Excel Converter adalah aplikasi web yang memungkinkan pengguna untuk mengkonvers
 
 <!-- Tailwind CSS untuk styling -->
 <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
-```
 
 ### 2.2 Komponen Utama UI
 1. File Upload Area
