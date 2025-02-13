@@ -50,6 +50,7 @@ setup() {
 `
 
 ### 3.2 File Handling
+
 `
 const handleFile = (event) => {
     const file = event.target.files[0]
