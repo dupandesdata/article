@@ -37,7 +37,7 @@ Excel Converter adalah aplikasi web yang memungkinkan pengguna untuk mengkonvers
 ## 3. Penjelasan Detail Kode
 
 ### 3.1 State Management (Vue.js Setup)
-```javascript
+`
 setup() {
     const tableData = ref([])          // Menyimpan data tabel dari Excel
     const tableHeaders = ref([])       // Menyimpan header tabel
@@ -48,10 +48,10 @@ setup() {
     const previewArea = ref(null)     // Referensi area preview
     // ...
 }
-```
+`
 
 ### 3.2 File Handling
-```javascript
+`
 const handleFile = (event) => {
     const file = event.target.files[0]
     const reader = new FileReader()
@@ -73,12 +73,12 @@ const handleFile = (event) => {
 
     reader.readAsArrayBuffer(file)
 }
-```
+`
 
 ### 3.3 Export Functionality
 
 #### 3.3.1 JSON Export
-```javascript
+`
 // Konversi data tabel ke format JSON
 const jsonData = tableData.value.map(row => {
     const obj = {}
@@ -88,10 +88,10 @@ const jsonData = tableData.value.map(row => {
     return obj
 })
 return JSON.stringify(jsonData, null, 2)
-```
+`
 
 #### 3.3.2 HTML Export
-```javascript
+`
 // Generate kode HTML untuk tabel
 return `<table>
   <thead>
@@ -106,10 +106,10 @@ return `<table>
     </tr>`).join('\n    ')}
   </tbody>
 </table>`
-```
+`
 
 #### 3.3.3 PDF Export
-```javascript
+`
 const pdfOpts = {
     margin: 1,
     filename: 'export.pdf',
@@ -118,45 +118,19 @@ const pdfOpts = {
     jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
 }
 await html2pdf().from(previewArea.value).set(pdfOpts).save()
-```
+`
 
 #### 3.3.4 PNG Export
-```javascript
+`
 const canvas = await html2canvas(previewArea.value)
 const pngUrl = canvas.toDataURL('image/png')
 const pngLink = document.createElement('a')
 pngLink.href = pngUrl
 pngLink.download = 'export.png'
 pngLink.click()
-```
+`
 
-## 4. Fitur UI/UX
-
-### 4.1 Animasi
-```css
-/* Fade animation untuk transisi */
-.fade-enter-active, .fade-leave-active {
-    transition: opacity 0.5s;
-}
-.fade-enter-from, .fade-leave-to {
-    opacity: 0;
-}
-
-/* Slide animation untuk header/footer controls */
-.slide-enter-active, .slide-leave-active {
-    transition: transform 0.5s;
-}
-.slide-enter-from, .slide-leave-to {
-    transform: translateY(-20px);
-}
-```
-
-### 4.2 Responsive Design
-- Menggunakan Tailwind CSS classes untuk responsiveness
-- Overflow handling untuk tabel besar
-- Flexible layout yang beradaptasi dengan ukuran layar
-
-## 5. Alur Kerja Aplikasi
+## 4. Alur Kerja Aplikasi
 
 1. **Upload File Excel**
    - User men-drag atau memilih file Excel
@@ -176,14 +150,14 @@ pngLink.click()
    - File diproses sesuai format yang dipilih
    - File hasil konversi di-download ke perangkat user
 
-## 6. Error Handling
+## 5. Error Handling
 
 - Validasi tipe file saat upload
 - Pengecekan data kosong
 - Handling untuk tabel besar
 - Fallback untuk browser yang tidak mendukung fitur tertentu
 
-## 7. Best Practices yang Diterapkan
+## 6. Best Practices yang Diterapkan
 
 1. **Performance**
    - Lazy loading untuk preview
@@ -205,7 +179,7 @@ pngLink.click()
    - File type validation
    - Safe data handling
 
-## 8. Penggunaan
+## 7. Penggunaan
 
 1. Buka aplikasi di browser
 2. Drag and drop file Excel atau klik area upload untuk memilih file
@@ -215,7 +189,7 @@ pngLink.click()
    - Isi teks header/footer
 5. Klik tombol Export untuk men-download file hasil konversi
 
-## 9. Limitasi
+## 8. Limitasi
 
 - Maksimum ukuran file tergantung pada browser
 - Format Excel yang didukung: .xlsx dan .xls
