@@ -10,6 +10,7 @@ Excel Converter adalah aplikasi web yang memungkinkan pengguna untuk mengkonvers
 
 ### 2.1 Dependensi Eksternal
 
+`
 <!-- Vue.js untuk framework frontend -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/3.3.4/vue.global.min.js"></script>
 
@@ -24,6 +25,7 @@ Excel Converter adalah aplikasi web yang memungkinkan pengguna untuk mengkonvers
 
 <!-- Tailwind CSS untuk styling -->
 <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+`
 
 ### 2.2 Komponen Utama UI
 1. File Upload Area
@@ -64,7 +66,6 @@ const handleFile = (event) => {
         const firstSheet = workbook.Sheets[workbook.SheetNames[0]]
         // Konversi ke JSON dengan header
         const jsonData = XLSX.utils.sheet_to_json(firstSheet, { header: 1 })
-        
         // Pisahkan header dan data
         tableHeaders.value = jsonData[0]
         tableData.value = jsonData.slice(1)
