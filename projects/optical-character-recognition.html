@@ -1,0 +1,111 @@
+<article>
+  <h1>Dokumentasi Aplikasi OCR dengan Pemotongan Opsional</h1>
+  <h2>Deskripsi Aplikasi</h2>
+  <p class="mt-1 mb-1">Aplikasi ini adalah alat berbasis web yang memungkinkan pengguna untuk mengunggah gambar,
+    memotong gambar tersebut jika diperlukan, dan kemudian menggunakan teknologi Optical Character Recognition (OCR)
+    untuk mengonversi teks dalam gambar menjadi teks yang dapat diedit. Aplikasi ini dibangun menggunakan HTML, CSS,
+    dan JavaScript dengan framework Vue.js dan Tesseract.js.</p>
+  <h2>Fitur Utama</h2>
+  <ol>
+    <li><strong>Unggah Gambar</strong>: Pengguna dapat mengunggah gambar dari perangkat mereka.</li>
+    <li><strong>Pemotongan Gambar</strong>: Pengguna dapat memotong gambar sebelum melakukan konversi teks.</li>
+    <li><strong>Konversi Teks</strong>: Menggunakan Tesseract.js untuk mengonversi gambar menjadi teks.</li>
+    <li><strong>Antarmuka Responsif</strong>: Desain yang responsif dan ramah pengguna.</li>
+  </ol>
+  <h2>Struktur HTML</h2>
+  <p class="mt-1 mb-1">Aplikasi ini menggunakan struktur HTML yang sederhana dengan elemen-elemen berikut:</p>
+  <ul>
+    <li><strong><code>&lt;head&gt;</code></strong>: Berisi metadata, judul, dan link ke stylesheet serta skrip yang
+      diperlukan.</li>
+    <li><strong><code>&lt;body&gt;</code></strong>: Berisi elemen-elemen antarmuka pengguna seperti judul, input file,
+      gambar, tombol, dan area untuk menampilkan teks yang telah dikonversi.</li>
+  </ul>
+  <h2>Penjelasan JavaScript</h2>
+  <p class="mt-1 mb-1">Aplikasi ini menggunakan Vue.js untuk mengelola state dan interaksi pengguna. Berikut
+    adalah penjelasan detail tentang bagian JavaScript:</p>
+  <h3>Inisialisasi Vue</h3>
+  <pre><div class="relative w-full font-sans codeblock bg-zinc-950 rounded-md overflow-hidden"><div class="flex items-center justify-between w-full px-6 py-2 pr-4 dark:bg-bgDarkSecondary text-zinc-100"><span class="text-xs lowercase">javascript</span><div class="flex items-center space-x-1"></div></div><div style="color: rgb(227, 234, 242); background: transparent; font-family: Consolas, Monaco, &quot;Andale Mono&quot;, &quot;Ubuntu Mono&quot;, monospace; text-align: left; white-space: pre; word-spacing: normal; word-break: normal; overflow-wrap: normal; line-height: 1.5; tab-size: 4; hyphens: none; padding: 1.5rem 1rem; margin: 0px; overflow: auto; width: 100%;"><code style="white-space: pre; font-size: 0.9rem; font-family: var(--font-mono);"><span class="linenumber react-syntax-highlighter-line-number" style="display: inline-block; min-width: 2.25em; padding-right: 1em; text-align: right; user-select: none; color: rgb(141, 161, 185);">1</span><span class="token" style="color: rgb(233, 174, 126);">new</span><span> </span><span class="token" style="color: rgb(108, 184, 230);">Vue</span><span class="token" style="color: rgb(227, 234, 242);">(</span><span class="token" style="color: rgb(227, 234, 242);">{</span><span>
+  </span><span class="linenumber react-syntax-highlighter-line-number" style="display: inline-block; min-width: 2.25em; padding-right: 1em; text-align: right; user-select: none; color: rgb(141, 161, 185);">2</span><span>  </span><span class="token literal-property" style="color: rgb(108, 184, 230);">el</span><span class="token" style="color: rgb(233, 174, 126);">:</span><span> </span><span class="token" style="color: rgb(145, 208, 118);">'#app'</span><span class="token" style="color: rgb(227, 234, 242);">,</span><span>
+  </span><span class="linenumber react-syntax-highlighter-line-number" style="display: inline-block; min-width: 2.25em; padding-right: 1em; text-align: right; user-select: none; color: rgb(141, 161, 185);">3</span><span>  </span><span class="token literal-property" style="color: rgb(108, 184, 230);">data</span><span class="token" style="color: rgb(233, 174, 126);">:</span><span> </span><span class="token" style="color: rgb(227, 234, 242);">{</span><span>
+  </span><span class="linenumber react-syntax-highlighter-line-number" style="display: inline-block; min-width: 2.25em; padding-right: 1em; text-align: right; user-select: none; color: rgb(141, 161, 185);">4</span><span>    </span><span class="token literal-property" style="color: rgb(108, 184, 230);">imageUrl</span><span class="token" style="color: rgb(233, 174, 126);">:</span><span> </span><span class="token null nil" style="color: rgb(233, 174, 126);">null</span><span class="token" style="color: rgb(227, 234, 242);">,</span><span>
+  </span><span class="linenumber react-syntax-highlighter-line-number" style="display: inline-block; min-width: 2.25em; padding-right: 1em; text-align: right; user-select: none; color: rgb(141, 161, 185);">5</span><span>    </span><span class="token literal-property" style="color: rgb(108, 184, 230);">croppedImageUrl</span><span class="token" style="color: rgb(233, 174, 126);">:</span><span> </span><span class="token null nil" style="color: rgb(233, 174, 126);">null</span><span class="token" style="color: rgb(227, 234, 242);">,</span><span>
+  </span><span class="linenumber react-syntax-highlighter-line-number" style="display: inline-block; min-width: 2.25em; padding-right: 1em; text-align: right; user-select: none; color: rgb(141, 161, 185);">6</span><span>    </span><span class="token literal-property" style="color: rgb(108, 184, 230);">convertedText</span><span class="token" style="color: rgb(233, 174, 126);">:</span><span> </span><span class="token" style="color: rgb(145, 208, 118);">''</span><span class="token" style="color: rgb(227, 234, 242);">,</span><span>
+  </span><span class="linenumber react-syntax-highlighter-line-number" style="display: inline-block; min-width: 2.25em; padding-right: 1em; text-align: right; user-select: none; color: rgb(141, 161, 185);">7</span><span>    </span><span class="token literal-property" style="color: rgb(108, 184, 230);">isConverting</span><span class="token" style="color: rgb(233, 174, 126);">:</span><span> </span><span class="token" style="color: rgb(230, 211, 122);">false</span><span class="token" style="color: rgb(227, 234, 242);">,</span><span>
+  </span><span class="linenumber react-syntax-highlighter-line-number" style="display: inline-block; min-width: 2.25em; padding-right: 1em; text-align: right; user-select: none; color: rgb(141, 161, 185);">8</span><span>    </span><span class="token literal-property" style="color: rgb(108, 184, 230);">isCropping</span><span class="token" style="color: rgb(233, 174, 126);">:</span><span> </span><span class="token" style="color: rgb(230, 211, 122);">false</span><span class="token" style="color: rgb(227, 234, 242);">,</span><span>
+  </span><span class="linenumber react-syntax-highlighter-line-number" style="display: inline-block; min-width: 2.25em; padding-right: 1em; text-align: right; user-select: none; color: rgb(141, 161, 185);">9</span><span>    </span><span class="token literal-property" style="color: rgb(108, 184, 230);">cropper</span><span class="token" style="color: rgb(233, 174, 126);">:</span><span> </span><span class="token null nil" style="color: rgb(233, 174, 126);">null</span><span>
+  </span><span class="linenumber react-syntax-highlighter-line-number" style="display: inline-block; min-width: 2.25em; padding-right: 1em; text-align: right; user-select: none; color: rgb(141, 161, 185);">10</span><span>  </span><span class="token" style="color: rgb(227, 234, 242);">}</span><span class="token" style="color: rgb(227, 234, 242);">,</span><span>
+  </span><span class="linenumber react-syntax-highlighter-line-number" style="display: inline-block; min-width: 2.25em; padding-right: 1em; text-align: right; user-select: none; color: rgb(141, 161, 185);">11</span><span>  </span><span class="token literal-property" style="color: rgb(108, 184, 230);">methods</span><span class="token" style="color: rgb(233, 174, 126);">:</span><span> </span><span class="token" style="color: rgb(227, 234, 242);">{</span><span>
+  </span><span class="linenumber react-syntax-highlighter-line-number" style="display: inline-block; min-width: 2.25em; padding-right: 1em; text-align: right; user-select: none; color: rgb(141, 161, 185);">12</span><span>    </span><span class="token" style="color: rgb(141, 161, 185);">// Metode akan dijelaskan di bawah</span><span>
+  </span><span class="linenumber react-syntax-highlighter-line-number" style="display: inline-block; min-width: 2.25em; padding-right: 1em; text-align: right; user-select: none; color: rgb(141, 161, 185);">13</span><span>  </span><span class="token" style="color: rgb(227, 234, 242);">}</span><span>
+  </span><span class="linenumber react-syntax-highlighter-line-number" style="display: inline-block; min-width: 2.25em; padding-right: 1em; text-align: right; user-select: none; color: rgb(141, 161, 185);">14</span><span></span><span class="token" style="color: rgb(227, 234, 242);">}</span><span class="token" style="color: rgb(227, 234, 242);">)</span><span class="token" style="color: rgb(227, 234, 242);">;</span></code></div></div></pre>
+  <ul>
+    <li><strong><code>el</code></strong>: Menentukan elemen DOM yang akan dikelola oleh Vue.</li>
+    <li><strong><code>data</code></strong>: Menyimpan state aplikasi, termasuk URL gambar, URL gambar yang dipotong,
+      teks yang telah dikonversi, dan status pemrosesan.</li>
+  </ul>
+  <h3>Metode</h3>
+  <ol>
+    <li>
+      <p class="mt-1 mb-1"><strong><code>handleImageUpload(event)</code></strong></p>
+      <ul>
+        <li>Mengelola unggahan gambar.</li>
+        <li>Membaca file gambar dan mengubahnya menjadi URL yang dapat digunakan untuk ditampilkan.</li>
+        <li>Menginisialisasi pemotongan jika ada gambar baru yang diunggah.</li>
+      </ul>
+    </li>
+    <li>
+      <p class="mt-1 mb-1"><strong><code>initCropper()</code></strong></p>
+      <ul>
+        <li>Menginisialisasi Cropper.js untuk memungkinkan pemotongan gambar.</li>
+        <li>Mengatur <code>isCropping</code> menjadi <code>true</code> untuk menampilkan kontrol pemotongan.</li>
+      </ul>
+    </li>
+    <li>
+      <p class="mt-1 mb-1"><strong><code>cropImage()</code></strong></p>
+      <ul>
+        <li>Mengambil gambar yang telah dipotong dan mengubahnya menjadi URL.</li>
+        <li>Menghentikan mode pemotongan dan menghancurkan instance Cropper.</li>
+      </ul>
+    </li>
+    <li>
+      <p class="mt-1 mb-1"><strong><code>cancelCrop()</code></strong></p>
+      <ul>
+        <li>Menghentikan pemotongan dan menghapus instance Cropper jika ada.</li>
+        <li>Mengatur <code>isCropping</code> dan <code>croppedImageUrl</code> ke nilai awal.</li>
+      </ul>
+    </li>
+    <li>
+      <p class="mt-1 mb-1"><strong><code>convertToText()</code></strong></p>
+      <ul>
+        <li>Mengonversi gambar (baik yang dipotong atau tidak) menjadi teks menggunakan Tesseract.js.</li>
+        <li>Menangani status konversi dan menampilkan hasilnya.</li>
+        <li>Menangani kesalahan yang mungkin terjadi selama proses konversi.</li>
+      </ul>
+    </li>
+  </ol>
+  <h3>Penggunaan Tesseract.js</h3>
+  <pre><div class="relative w-full font-sans codeblock bg-zinc-950 rounded-md overflow-hidden"><div class="flex items-center justify-between w-full px-6 py-2 pr-4 dark:bg-bgDarkSecondary text-zinc-100"><span class="text-xs lowercase">javascript</span><div class="flex items-center space-x-1"></div></div><div style="color: rgb(227, 234, 242); background: transparent; font-family: Consolas, Monaco, &quot;Andale Mono&quot;, &quot;Ubuntu Mono&quot;, monospace; text-align: left; white-space: pre; word-spacing: normal; word-break: normal; overflow-wrap: normal; line-height: 1.5; tab-size: 4; hyphens: none; padding: 1.5rem 1rem; margin: 0px; overflow: auto; width: 100%;"><code style="white-space: pre; font-size: 0.9rem; font-family: var(--font-mono);"><span class="linenumber react-syntax-highlighter-line-number" style="display: inline-block; min-width: 2.25em; padding-right: 1em; text-align: right; user-select: none; color: rgb(141, 161, 185);">1</span><span class="token maybe-class-name">Tesseract</span><span class="token" style="color: rgb(227, 234, 242);">.</span><span class="token method" style="color: rgb(108, 184, 230);">recognize</span><span class="token" style="color: rgb(227, 234, 242);">(</span><span>imageToConvert</span><span class="token" style="color: rgb(227, 234, 242);">)</span><span>
+  </span><span class="linenumber react-syntax-highlighter-line-number" style="display: inline-block; min-width: 2.25em; padding-right: 1em; text-align: right; user-select: none; color: rgb(141, 161, 185);">2</span><span>  </span><span class="token" style="color: rgb(227, 234, 242);">.</span><span class="token method" style="color: rgb(108, 184, 230);">then</span><span class="token" style="color: rgb(227, 234, 242);">(</span><span class="token" style="color: rgb(227, 234, 242);">(</span><span class="token" style="color: rgb(227, 234, 242);">{</span><span class="token" style="color: rgb(108, 184, 230);"> </span><span class="token literal-property" style="color: rgb(108, 184, 230);">data</span><span class="token" style="color: rgb(233, 174, 126);">:</span><span class="token" style="color: rgb(108, 184, 230);"> </span><span class="token" style="color: rgb(227, 234, 242);">{</span><span class="token" style="color: rgb(108, 184, 230);"> text </span><span class="token" style="color: rgb(227, 234, 242);">}</span><span class="token" style="color: rgb(108, 184, 230);"> </span><span class="token" style="color: rgb(227, 234, 242);">}</span><span class="token" style="color: rgb(227, 234, 242);">)</span><span> </span><span class="token arrow" style="color: rgb(233, 174, 126);">=&gt;</span><span> </span><span class="token" style="color: rgb(227, 234, 242);">{</span><span>
+  </span><span class="linenumber react-syntax-highlighter-line-number" style="display: inline-block; min-width: 2.25em; padding-right: 1em; text-align: right; user-select: none; color: rgb(141, 161, 185);">3</span><span>    </span><span class="token" style="color: rgb(233, 174, 126);">this</span><span class="token" style="color: rgb(227, 234, 242);">.</span><span class="token" style="color: rgb(108, 184, 230);">convertedText</span><span> </span><span class="token" style="color: rgb(233, 174, 126);">=</span><span> text</span><span class="token" style="color: rgb(227, 234, 242);">;</span><span>
+  </span><span class="linenumber react-syntax-highlighter-line-number" style="display: inline-block; min-width: 2.25em; padding-right: 1em; text-align: right; user-select: none; color: rgb(141, 161, 185);">4</span><span>  </span><span class="token" style="color: rgb(227, 234, 242);">}</span><span class="token" style="color: rgb(227, 234, 242);">)</span><span>
+  </span><span class="linenumber react-syntax-highlighter-line-number" style="display: inline-block; min-width: 2.25em; padding-right: 1em; text-align: right; user-select: none; color: rgb(141, 161, 185);">5</span><span>  </span><span class="token" style="color: rgb(227, 234, 242);">.</span><span class="token control-flow" style="color: rgb(233, 174, 126);">catch</span><span class="token" style="color: rgb(227, 234, 242);">(</span><span class="token" style="color: rgb(108, 184, 230);">error</span><span> </span><span class="token arrow" style="color: rgb(233, 174, 126);">=&gt;</span><span> </span><span class="token" style="color: rgb(227, 234, 242);">{</span><span>
+  </span><span class="linenumber react-syntax-highlighter-line-number" style="display: inline-block; min-width: 2.25em; padding-right: 1em; text-align: right; user-select: none; color: rgb(141, 161, 185);">6</span><span>    </span><span class="token console" style="color: rgb(108, 184, 230);">console</span><span class="token" style="color: rgb(227, 234, 242);">.</span><span class="token method" style="color: rgb(108, 184, 230);">error</span><span class="token" style="color: rgb(227, 234, 242);">(</span><span class="token" style="color: rgb(145, 208, 118);">'Error during OCR:'</span><span class="token" style="color: rgb(227, 234, 242);">,</span><span> error</span><span class="token" style="color: rgb(227, 234, 242);">)</span><span class="token" style="color: rgb(227, 234, 242);">;</span><span>
+  </span><span class="linenumber react-syntax-highlighter-line-number" style="display: inline-block; min-width: 2.25em; padding-right: 1em; text-align: right; user-select: none; color: rgb(141, 161, 185);">7</span><span>    </span><span class="token" style="color: rgb(233, 174, 126);">this</span><span class="token" style="color: rgb(227, 234, 242);">.</span><span class="token" style="color: rgb(108, 184, 230);">convertedText</span><span> </span><span class="token" style="color: rgb(233, 174, 126);">=</span><span> </span><span class="token" style="color: rgb(145, 208, 118);">'Error occurred during text conversion.'</span><span class="token" style="color: rgb(227, 234, 242);">;</span><span>
+  </span><span class="linenumber react-syntax-highlighter-line-number" style="display: inline-block; min-width: 2.25em; padding-right: 1em; text-align: right; user-select: none; color: rgb(141, 161, 185);">8</span><span>  </span><span class="token" style="color: rgb(227, 234, 242);">}</span><span class="token" style="color: rgb(227, 234, 242);">)</span><span>
+  </span><span class="linenumber react-syntax-highlighter-line-number" style="display: inline-block; min-width: 2.25em; padding-right: 1em; text-align: right; user-select: none; color: rgb(141, 161, 185);">9</span><span>  </span><span class="token" style="color: rgb(227, 234, 242);">.</span><span class="token control-flow" style="color: rgb(233, 174, 126);">finally</span><span class="token" style="color: rgb(227, 234, 242);">(</span><span class="token" style="color: rgb(227, 234, 242);">(</span><span class="token" style="color: rgb(227, 234, 242);">)</span><span> </span><span class="token arrow" style="color: rgb(233, 174, 126);">=&gt;</span><span> </span><span class="token" style="color: rgb(227, 234, 242);">{</span><span>
+  </span><span class="linenumber react-syntax-highlighter-line-number" style="display: inline-block; min-width: 2.25em; padding-right: 1em; text-align: right; user-select: none; color: rgb(141, 161, 185);">10</span><span>    </span><span class="token" style="color: rgb(233, 174, 126);">this</span><span class="token" style="color: rgb(227, 234, 242);">.</span><span class="token" style="color: rgb(108, 184, 230);">isConverting</span><span> </span><span class="token" style="color: rgb(233, 174, 126);">=</span><span> </span><span class="token" style="color: rgb(230, 211, 122);">false</span><span class="token" style="color: rgb(227, 234, 242);">;</span><span>
+  </span><span class="linenumber react-syntax-highlighter-line-number" style="display: inline-block; min-width: 2.25em; padding-right: 1em; text-align: right; user-select: none; color: rgb(141, 161, 185);">11</span><span>  </span><span class="token" style="color: rgb(227, 234, 242);">}</span><span class="token" style="color: rgb(227, 234, 242);">)</span><span class="token" style="color: rgb(227, 234, 242);">;</span></code></div></div></pre>
+  <ul>
+    <li><strong><code>Tesseract.recognize()</code></strong>: Memanggil fungsi untuk memulai proses OCR pada gambar
+      yang diberikan.</li>
+    <li><strong><code>then()</code></strong>: Menangani hasil konversi dan menyimpan teks yang dihasilkan.</li>
+    <li><strong><code>catch()</code></strong>: Menangani kesalahan yang mungkin terjadi selama proses OCR.</li>
+    <li><strong><code>finally()</code></strong>: Mengatur status konversi kembali ke <code>false</code> setelah proses
+      selesai.</li>
+  </ul>
+  <h2>Kesimpulan</h2>
+  <p class="mt-1 mb-1">Aplikasi OCR ini memberikan cara yang mudah dan efisien untuk mengonversi teks dari gambar
+    menjadi format yang dapat diedit. Dengan fitur pemotongan opsional, pengguna dapat memastikan bahwa hanya bagian
+    gambar yang relevan yang akan diproses, meningkatkan akurasi konversi. Aplikasi ini menggunakan teknologi modern
+    seperti Vue.js dan Tesseract.js untuk memberikan pengalaman pengguna yang responsif dan intuitif.</p>
+</article>
