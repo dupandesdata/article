@@ -24,7 +24,7 @@
     <p class="mt-1 mb-1">Aplikasi ini menggunakan Vue.js untuk mengelola state dan interaksi pengguna. Berikut
       adalah penjelasan detail tentang bagian JavaScript:</p>
     <h3>Inisialisasi Vue</h3>
-    <div class="relative w-full font-sans codeblock bg-zinc-950 rounded-md overflow-hidden text-zinc-100 py-6 px-4">
+    <div class="relative w-full font-sans codeblock bg-zinc-950 rounded-md overflow-hidden text-zinc-100 py-6 px-4 mt-1 mb-1">
       <div class="flex items-center space-x-1 mr-2 mb-1"><svg viewBox="0 0 28 28" fill="rgb(250 204 21)"
           class="w-5 h-5">
           <path
@@ -86,7 +86,7 @@
       </li>
     </ol>
     <h3>Penggunaan Tesseract.js</h3>
-    <div class="relative w-full font-sans codeblock bg-zinc-950 rounded-md overflow-hidden text-zinc-100 py-6 px-4">
+    <div class="relative w-full font-sans codeblock bg-zinc-950 rounded-md overflow-hidden text-zinc-100 py-5 px-4 mb-1 mt-t">
       <div class="flex items-center space-x-1 mr-2 mb-1"><svg viewBox="0 0 28 28" fill="rgb(250 204 21)"
           class="w-5 h-5">
           <path
@@ -97,7 +97,7 @@
       <code>
       <div style="background-color: #0d1117; color: #e6edf3; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div>&nbsp;<span style="background-color: #0d1117; color: #e6edf3; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; white-space: pre;">Tesseract.</span><span style="background-color: #0d1117; color: #d2a8ff; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; white-space: pre;">recognize</span><span style="background-color: #0d1117; color: #e6edf3; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; white-space: pre;">(imageToConvert)</span></div><div>&nbsp; .<span style="color: #d2a8ff;">then</span>(({ <span style="color: #ffa657;">data</span>: { <span style="color: #ffa657;">text</span> } }) <span style="color: #ff7b72;">=&gt;</span> {</div><div>&nbsp; &nbsp; <span style="color: #79c0ff;">this</span>.convertedText <span style="color: #ff7b72;">=</span> <span style="color: #ffa657;">text</span>;</div><div>&nbsp; })</div><div>&nbsp; .<span style="color: #d2a8ff;">catch</span>((<span style="color: #ffa657;">error</span>) <span style="color: #ff7b72;">=&gt;</span> {</div><div>&nbsp; &nbsp; <span style="color: #79c0ff;">console</span>.<span style="color: #d2a8ff;">error</span>(<span style="color: #a5d6ff;">"Error during OCR:"</span>, <span style="color: #ffa657;">error</span>);</div><div>&nbsp; &nbsp; <span style="color: #79c0ff;">this</span>.convertedText <span style="color: #ff7b72;">=</span> <span style="color: #a5d6ff;">"Error occurred during text conversion."</span>;</div><div>&nbsp; })</div><div>&nbsp; .<span style="color: #d2a8ff;">finally</span>(() <span style="color: #ff7b72;">=&gt;</span> {</div><div>&nbsp; &nbsp; <span style="color: #79c0ff;">this</span>.isConverting <span style="color: #ff7b72;">=</span> <span style="color: #79c0ff;">false</span>;</div><div>&nbsp; });</div></div>
     </code>
-      </din>
+      </div>
       <ul>
         <li><strong><code>Tesseract.recognize()</code></strong>: Memanggil fungsi untuk memulai proses OCR pada gambar
           yang diberikan.</li>
