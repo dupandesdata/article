@@ -1,104 +1,115 @@
-<article>
-  <h1>Dokumentasi Aplikasi OCR dengan Pemotongan Opsional</h1>
-  <h2>Deskripsi Aplikasi</h2>
-  <p class="mt-1 mb-1">Aplikasi ini adalah alat berbasis web yang memungkinkan pengguna untuk mengunggah gambar,
-    memotong gambar tersebut jika diperlukan, dan kemudian menggunakan teknologi Optical Character Recognition (OCR)
-    untuk mengonversi teks dalam gambar menjadi teks yang dapat diedit. Aplikasi ini dibangun menggunakan HTML, CSS,
-    dan JavaScript dengan framework Vue.js dan Tesseract.js.</p>
-  <h2>Fitur Utama</h2>
-  <ol>
-    <li><strong>Unggah Gambar</strong>: Pengguna dapat mengunggah gambar dari perangkat mereka.</li>
-    <li><strong>Pemotongan Gambar</strong>: Pengguna dapat memotong gambar sebelum melakukan konversi teks.</li>
-    <li><strong>Konversi Teks</strong>: Menggunakan Tesseract.js untuk mengonversi gambar menjadi teks.</li>
-    <li><strong>Antarmuka Responsif</strong>: Desain yang responsif dan ramah pengguna.</li>
-  </ol>
-  <h2>Struktur HTML</h2>
-  <p class="mt-1 mb-1">Aplikasi ini menggunakan struktur HTML yang sederhana dengan elemen-elemen berikut:</p>
-  <ul>
-    <li><strong><code>&lt;head&gt;</code></strong>: Berisi metadata, judul, dan link ke stylesheet serta skrip yang
-      diperlukan.</li>
-    <li><strong><code>&lt;body&gt;</code></strong>: Berisi elemen-elemen antarmuka pengguna seperti judul, input
-      file,
-      gambar, tombol, dan area untuk menampilkan teks yang telah dikonversi.</li>
-  </ul>
-  <h2>Penjelasan JavaScript</h2>
-  <p class="mt-1 mb-1">Aplikasi ini menggunakan Vue.js untuk mengelola state dan interaksi pengguna. Berikut
-    adalah penjelasan detail tentang bagian JavaScript:</p>
-  <h3>Inisialisasi Vue</h3>
-  <pre>
-    <div class="relative w-full font-sans codeblock bg-zinc-950 rounded-md overflow-hidden">
-      <div class="px-6 py-2 pr-4 text-zinc-100"><div class="flex items-center space-x-1 mr-2 mb-1"><svg viewBox="0 0 28 28" fill="rgb(250 204 21)" class="w-4 h-4"><path d="M0 0h24v24H0V0zm22.034 18.276c-.175-1.095-.888-2.015-3.003-2.873-.736-.345-1.554-.585-1.797-1.14-.091-.33-.105-.51-.046-.705.15-.646.915-.84 1.515-.66.39.12.75.42.976.9 1.034-.676 1.034-.676 1.755-1.125-.27-.42-.404-.601-.586-.78-.63-.705-1.469-1.065-2.834-1.034l-.705.089c-.676.165-1.32.525-1.71 1.005-1.14 1.291-.811 3.541.569 4.471 1.365 1.02 3.361 1.244 3.616 2.205.24 1.17-.87 1.545-1.966 1.41-.811-.18-1.26-.586-1.755-1.336l-1.83 1.051c.21.48.45.689.81 1.109 1.74 1.756 6.09 1.666 6.871-1.004.029-.09.24-.705.074-1.65l.046.067zm-8.983-7.245h-2.248c0 1.938-.009 3.864-.009 5.805 0 1.232.063 2.363-.138 2.711-.33.689-1.18.601-1.566.48-.396-.196-.597-.466-.83-.855-.063-.105-.11-.196-.127-.196l-1.825 1.125c.305.63.75 1.172 1.324 1.517.855.51 2.004.675 3.207.405.783-.226 1.458-.691 1.811-1.411.51-.93.402-2.07.397-3.346.012-2.054 0-4.109 0-6.179l.004-.056z"></path></svg> <span class="text-xs text-neutral-800">JavaScript</span></div>
+  <article>
+    <h1>Dokumentasi Aplikasi OCR dengan Pemotongan Opsional</h1>
+    <p class="mt-1 mb-1">Aplikasi ini adalah alat berbasis web yang memungkinkan pengguna untuk mengunggah gambar,
+      memotong gambar tersebut jika diperlukan, dan kemudian menggunakan teknologi Optical Character Recognition (OCR)
+      untuk mengonversi teks dalam gambar menjadi teks yang dapat diedit. Aplikasi ini dibangun menggunakan HTML, CSS,
+      dan JavaScript dengan framework Vue.js dan Tesseract.js.</p>
+    <h2>Fitur Utama</h2>
+    <ol>
+      <li><strong>Unggah Gambar</strong>: Pengguna dapat mengunggah gambar dari perangkat mereka.</li>
+      <li><strong>Pemotongan Gambar</strong>: Pengguna dapat memotong gambar sebelum melakukan konversi teks.</li>
+      <li><strong>Konversi Teks</strong>: Menggunakan Tesseract.js untuk mengonversi gambar menjadi teks.</li>
+      <li><strong>Antarmuka Responsif</strong>: Desain yang responsif dan ramah pengguna.</li>
+    </ol>
+    <h2>Struktur HTML</h2>
+    <p class="mt-1 mb-1">Aplikasi ini menggunakan struktur HTML yang sederhana dengan elemen-elemen berikut:</p>
+    <ul>
+      <li><strong><code>&lt;head&gt;</code></strong>: Berisi metadata, judul, dan link ke stylesheet serta skrip yang
+        diperlukan.</li>
+      <li><strong><code>&lt;body&gt;</code></strong>: Berisi elemen-elemen antarmuka pengguna seperti judul, input
+        file,
+        gambar, tombol, dan area untuk menampilkan teks yang telah dikonversi.</li>
+    </ul>
+    <h2>Penjelasan JavaScript</h2>
+    <p class="mt-1 mb-1">Aplikasi ini menggunakan Vue.js untuk mengelola state dan interaksi pengguna. Berikut
+      adalah penjelasan detail tentang bagian JavaScript:</p>
+    <h3>Inisialisasi Vue</h3>
+    <div class="relative w-full font-sans codeblock bg-zinc-950 rounded-md overflow-hidden text-zinc-100 py-6 px-4">
+      <div class="flex items-center space-x-1 mr-2 mb-1"><svg viewBox="0 0 28 28" fill="rgb(250 204 21)"
+          class="w-5 h-5">
+          <path
+            d="M0 0h24v24H0V0zm22.034 18.276c-.175-1.095-.888-2.015-3.003-2.873-.736-.345-1.554-.585-1.797-1.14-.091-.33-.105-.51-.046-.705.15-.646.915-.84 1.515-.66.39.12.75.42.976.9 1.034-.676 1.034-.676 1.755-1.125-.27-.42-.404-.601-.586-.78-.63-.705-1.469-1.065-2.834-1.034l-.705.089c-.676.165-1.32.525-1.71 1.005-1.14 1.291-.811 3.541.569 4.471 1.365 1.02 3.361 1.244 3.616 2.205.24 1.17-.87 1.545-1.966 1.41-.811-.18-1.26-.586-1.755-1.336l-1.83 1.051c.21.48.45.689.81 1.109 1.74 1.756 6.09 1.666 6.871-1.004.029-.09.24-.705.074-1.65l.046.067zm-8.983-7.245h-2.248c0 1.938-.009 3.864-.009 5.805 0 1.232.063 2.363-.138 2.711-.33.689-1.18.601-1.566.48-.396-.196-.597-.466-.83-.855-.063-.105-.11-.196-.127-.196l-1.825 1.125c.305.63.75 1.172 1.324 1.517.855.51 2.004.675 3.207.405.783-.226 1.458-.691 1.811-1.411.51-.93.402-2.07.397-3.346.012-2.054 0-4.109 0-6.179l.004-.056z">
+          </path>
+        </svg> <span class="text-md text-zinc-100">JavaScript</span>
       </div>
-      <div style="background-color: #0d1117; color: #e6edf3; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;">
+      <code>
+
+      <div style="background-color: #0d1117; color: #e6edf3; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; white-space: pre;">
         <div>&nbsp;<span style="background-color: #0d1117; color: #ff7b72; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; white-space: pre;">new</span><span style="background-color: #0d1117; color: #d2a8ff; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; white-space: pre;">Vue</span><span style="background-color: #0d1117; color: #e6edf3; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; white-space: pre;">({</span></div><div>&nbsp; el: <span style="color: #a5d6ff;">"#app"</span>,</div><div>&nbsp; data: {</div><div>&nbsp; &nbsp; imageUrl: <span style="color: #79c0ff;">null</span>,</div><div>&nbsp; &nbsp; croppedImageUrl: <span style="color: #79c0ff;">null</span>,</div><div>&nbsp; &nbsp; convertedText: <span style="color: #a5d6ff;">""</span>,</div><div>&nbsp; &nbsp; isConverting: <span style="color: #79c0ff;">false</span>,</div><div>&nbsp; &nbsp; isCropping: <span style="color: #79c0ff;">false</span>,</div><div>&nbsp; &nbsp; cropper: <span style="color: #79c0ff;">null</span></div><div>&nbsp; },</div><div>&nbsp; methods: {</div><div>&nbsp; &nbsp; <span style="color: #8b949e;">// Metode akan dijelaskan di bawah</span></div><div>&nbsp; }</div><div>});</div></div>
     </div>
-  </pre>
-  <ul>
-    <li><strong><code>el</code></strong>: Menentukan elemen DOM yang akan dikelola oleh Vue.</li>
-    <li><strong><code>data</code></strong>: Menyimpan state aplikasi, termasuk URL gambar, URL gambar yang dipotong,
-      teks yang telah dikonversi, dan status pemrosesan.</li>
-  </ul>
-  <h3>Metode</h3>
-  <ol>
-    <li>
-      <p class="mt-1 mb-1"><strong><code>handleImageUpload(event)</code></strong></p>
-      <ul>
-        <li>Mengelola unggahan gambar.</li>
-        <li>Membaca file gambar dan mengubahnya menjadi URL yang dapat digunakan untuk ditampilkan.</li>
-        <li>Menginisialisasi pemotongan jika ada gambar baru yang diunggah.</li>
-      </ul>
-    </li>
-    <li>
-      <p class="mt-1 mb-1"><strong><code>initCropper()</code></strong></p>
-      <ul>
-        <li>Menginisialisasi Cropper.js untuk memungkinkan pemotongan gambar.</li>
-        <li>Mengatur <code>isCropping</code> menjadi <code>true</code> untuk menampilkan kontrol pemotongan.
-        </li>
-      </ul>
-    </li>
-    <li>
-      <p class="mt-1 mb-1"><strong><code>cropImage()</code></strong></p>
-      <ul>
-        <li>Mengambil gambar yang telah dipotong dan mengubahnya menjadi URL.</li>
-        <li>Menghentikan mode pemotongan dan menghancurkan instance Cropper.</li>
-      </ul>
-    </li>
-    <li>
-      <p class="mt-1 mb-1"><strong><code>cancelCrop()</code></strong></p>
-      <ul>
-        <li>Menghentikan pemotongan dan menghapus instance Cropper jika ada.</li>
-        <li>Mengatur <code>isCropping</code> dan <code>croppedImageUrl</code> ke nilai awal.</li>
-      </ul>
-    </li>
-    <li>
-      <p class="mt-1 mb-1"><strong><code>convertToText()</code></strong></p>
-      <ul>
-        <li>Mengonversi gambar (baik yang dipotong atau tidak) menjadi teks menggunakan Tesseract.js.</li>
-        <li>Menangani status konversi dan menampilkan hasilnya.</li>
-        <li>Menangani kesalahan yang mungkin terjadi selama proses konversi.</li>
-      </ul>
-    </li>
-  </ol>
-  <h3>Penggunaan Tesseract.js</h3>
-  <pre class="relative w-full font-sans codeblock bg-zinc-950 rounded-md overflow-hidden">
-    <div class="px-6 py-2 pr-4 text-zinc-100"><div class="flex items-center space-x-1 mr-2 mb-1"><svg viewBox="0 0 28 28" fill="rgb(250 204 21)" class="w-4 h-4"><path d="M0 0h24v24H0V0zm22.034 18.276c-.175-1.095-.888-2.015-3.003-2.873-.736-.345-1.554-.585-1.797-1.14-.091-.33-.105-.51-.046-.705.15-.646.915-.84 1.515-.66.39.12.75.42.976.9 1.034-.676 1.034-.676 1.755-1.125-.27-.42-.404-.601-.586-.78-.63-.705-1.469-1.065-2.834-1.034l-.705.089c-.676.165-1.32.525-1.71 1.005-1.14 1.291-.811 3.541.569 4.471 1.365 1.02 3.361 1.244 3.616 2.205.24 1.17-.87 1.545-1.966 1.41-.811-.18-1.26-.586-1.755-1.336l-1.83 1.051c.21.48.45.689.81 1.109 1.74 1.756 6.09 1.666 6.871-1.004.029-.09.24-.705.074-1.65l.046.067zm-8.983-7.245h-2.248c0 1.938-.009 3.864-.009 5.805 0 1.232.063 2.363-.138 2.711-.33.689-1.18.601-1.566.48-.396-.196-.597-.466-.83-.855-.063-.105-.11-.196-.127-.196l-1.825 1.125c.305.63.75 1.172 1.324 1.517.855.51 2.004.675 3.207.405.783-.226 1.458-.691 1.811-1.411.51-.93.402-2.07.397-3.346.012-2.054 0-4.109 0-6.179l.004-.056z"></path></svg> <span class="text-xs text-neutral-800">JavaScript</span></div>
+    </code>
     </div>
-  <code>
-    <div style="background-color: #0d1117; color: #e6edf3; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div>&nbsp;<span style="background-color: #0d1117; color: #e6edf3; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; white-space: pre;">Tesseract.</span><span style="background-color: #0d1117; color: #d2a8ff; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; white-space: pre;">recognize</span><span style="background-color: #0d1117; color: #e6edf3; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; white-space: pre;">(imageToConvert)</span></div><div>&nbsp; .<span style="color: #d2a8ff;">then</span>(({ <span style="color: #ffa657;">data</span>: { <span style="color: #ffa657;">text</span> } }) <span style="color: #ff7b72;">=&gt;</span> {</div><div>&nbsp; &nbsp; <span style="color: #79c0ff;">this</span>.convertedText <span style="color: #ff7b72;">=</span> <span style="color: #ffa657;">text</span>;</div><div>&nbsp; })</div><div>&nbsp; .<span style="color: #d2a8ff;">catch</span>((<span style="color: #ffa657;">error</span>) <span style="color: #ff7b72;">=&gt;</span> {</div><div>&nbsp; &nbsp; <span style="color: #79c0ff;">console</span>.<span style="color: #d2a8ff;">error</span>(<span style="color: #a5d6ff;">"Error during OCR:"</span>, <span style="color: #ffa657;">error</span>);</div><div>&nbsp; &nbsp; <span style="color: #79c0ff;">this</span>.convertedText <span style="color: #ff7b72;">=</span> <span style="color: #a5d6ff;">"Error occurred during text conversion."</span>;</div><div>&nbsp; })</div><div>&nbsp; .<span style="color: #d2a8ff;">finally</span>(() <span style="color: #ff7b72;">=&gt;</span> {</div><div>&nbsp; &nbsp; <span style="color: #79c0ff;">this</span>.isConverting <span style="color: #ff7b72;">=</span> <span style="color: #79c0ff;">false</span>;</div><div>&nbsp; });</div></div>
-  </code>
-</pre>
-  <ul>
-    <li><strong><code>Tesseract.recognize()</code></strong>: Memanggil fungsi untuk memulai proses OCR pada gambar
-      yang diberikan.</li>
-    <li><strong><code>then()</code></strong>: Menangani hasil konversi dan menyimpan teks yang dihasilkan.</li>
-    <li><strong><code>catch()</code></strong>: Menangani kesalahan yang mungkin terjadi selama proses OCR.</li>
-    <li><strong><code>finally()</code></strong>: Mengatur status konversi kembali ke <code>false</code> setelah
-      proses
-      selesai.</li>
-  </ul>
-  <h2>Kesimpulan</h2>
-  <p class="mt-1 mb-1">Aplikasi OCR ini memberikan cara yang mudah dan efisien untuk mengonversi teks dari gambar
-    menjadi format yang dapat diedit. Dengan fitur pemotongan opsional, pengguna dapat memastikan bahwa hanya bagian
-    gambar yang relevan yang akan diproses, meningkatkan akurasi konversi. Aplikasi ini menggunakan teknologi modern
-    seperti Vue.js dan Tesseract.js untuk memberikan pengalaman pengguna yang responsif dan intuitif.</p>
-</article>
+    <ul>
+      <li><strong><code>el</code></strong>: Menentukan elemen DOM yang akan dikelola oleh Vue.</li>
+      <li><strong><code>data</code></strong>: Menyimpan state aplikasi, termasuk URL gambar, URL gambar yang dipotong,
+        teks yang telah dikonversi, dan status pemrosesan.</li>
+    </ul>
+    <h3>Metode</h3>
+    <ol>
+      <li>
+        <p class="mt-1 mb-1"><strong><code>handleImageUpload(event)</code></strong></p>
+        <ul>
+          <li>Mengelola unggahan gambar.</li>
+          <li>Membaca file gambar dan mengubahnya menjadi URL yang dapat digunakan untuk ditampilkan.</li>
+          <li>Menginisialisasi pemotongan jika ada gambar baru yang diunggah.</li>
+        </ul>
+      </li>
+      <li>
+        <p class="mt-1 mb-1"><strong><code>initCropper()</code></strong></p>
+        <ul>
+          <li>Menginisialisasi Cropper.js untuk memungkinkan pemotongan gambar.</li>
+          <li>Mengatur <code>isCropping</code> menjadi <code>true</code> untuk menampilkan kontrol pemotongan.
+          </li>
+        </ul>
+      </li>
+      <li>
+        <p class="mt-1 mb-1"><strong><code>cropImage()</code></strong></p>
+        <ul>
+          <li>Mengambil gambar yang telah dipotong dan mengubahnya menjadi URL.</li>
+          <li>Menghentikan mode pemotongan dan menghancurkan instance Cropper.</li>
+        </ul>
+      </li>
+      <li>
+        <p class="mt-1 mb-1"><strong><code>cancelCrop()</code></strong></p>
+        <ul>
+          <li>Menghentikan pemotongan dan menghapus instance Cropper jika ada.</li>
+          <li>Mengatur <code>isCropping</code> dan <code>croppedImageUrl</code> ke nilai awal.</li>
+        </ul>
+      </li>
+      <li>
+        <p class="mt-1 mb-1"><strong><code>convertToText()</code></strong></p>
+        <ul>
+          <li>Mengonversi gambar (baik yang dipotong atau tidak) menjadi teks menggunakan Tesseract.js.</li>
+          <li>Menangani status konversi dan menampilkan hasilnya.</li>
+          <li>Menangani kesalahan yang mungkin terjadi selama proses konversi.</li>
+        </ul>
+      </li>
+    </ol>
+    <h3>Penggunaan Tesseract.js</h3>
+    <div class="relative w-full font-sans codeblock bg-zinc-950 rounded-md overflow-hidden text-zinc-100 py-6 px-4">
+      <div class="flex items-center space-x-1 mr-2 mb-1"><svg viewBox="0 0 28 28" fill="rgb(250 204 21)"
+          class="w-5 h-5">
+          <path
+            d="M0 0h24v24H0V0zm22.034 18.276c-.175-1.095-.888-2.015-3.003-2.873-.736-.345-1.554-.585-1.797-1.14-.091-.33-.105-.51-.046-.705.15-.646.915-.84 1.515-.66.39.12.75.42.976.9 1.034-.676 1.034-.676 1.755-1.125-.27-.42-.404-.601-.586-.78-.63-.705-1.469-1.065-2.834-1.034l-.705.089c-.676.165-1.32.525-1.71 1.005-1.14 1.291-.811 3.541.569 4.471 1.365 1.02 3.361 1.244 3.616 2.205.24 1.17-.87 1.545-1.966 1.41-.811-.18-1.26-.586-1.755-1.336l-1.83 1.051c.21.48.45.689.81 1.109 1.74 1.756 6.09 1.666 6.871-1.004.029-.09.24-.705.074-1.65l.046.067zm-8.983-7.245h-2.248c0 1.938-.009 3.864-.009 5.805 0 1.232.063 2.363-.138 2.711-.33.689-1.18.601-1.566.48-.396-.196-.597-.466-.83-.855-.063-.105-.11-.196-.127-.196l-1.825 1.125c.305.63.75 1.172 1.324 1.517.855.51 2.004.675 3.207.405.783-.226 1.458-.691 1.811-1.411.51-.93.402-2.07.397-3.346.012-2.054 0-4.109 0-6.179l.004-.056z">
+          </path>
+        </svg> <span class="text-md text-zinc-100">JavaScript</span>
+      </div>
+      <code>
+      <div style="background-color: #0d1117; color: #e6edf3; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;"><div>&nbsp;<span style="background-color: #0d1117; color: #e6edf3; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; white-space: pre;">Tesseract.</span><span style="background-color: #0d1117; color: #d2a8ff; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; white-space: pre;">recognize</span><span style="background-color: #0d1117; color: #e6edf3; font-family: Consolas, &quot;Courier New&quot;, monospace; font-size: 14px; white-space: pre;">(imageToConvert)</span></div><div>&nbsp; .<span style="color: #d2a8ff;">then</span>(({ <span style="color: #ffa657;">data</span>: { <span style="color: #ffa657;">text</span> } }) <span style="color: #ff7b72;">=&gt;</span> {</div><div>&nbsp; &nbsp; <span style="color: #79c0ff;">this</span>.convertedText <span style="color: #ff7b72;">=</span> <span style="color: #ffa657;">text</span>;</div><div>&nbsp; })</div><div>&nbsp; .<span style="color: #d2a8ff;">catch</span>((<span style="color: #ffa657;">error</span>) <span style="color: #ff7b72;">=&gt;</span> {</div><div>&nbsp; &nbsp; <span style="color: #79c0ff;">console</span>.<span style="color: #d2a8ff;">error</span>(<span style="color: #a5d6ff;">"Error during OCR:"</span>, <span style="color: #ffa657;">error</span>);</div><div>&nbsp; &nbsp; <span style="color: #79c0ff;">this</span>.convertedText <span style="color: #ff7b72;">=</span> <span style="color: #a5d6ff;">"Error occurred during text conversion."</span>;</div><div>&nbsp; })</div><div>&nbsp; .<span style="color: #d2a8ff;">finally</span>(() <span style="color: #ff7b72;">=&gt;</span> {</div><div>&nbsp; &nbsp; <span style="color: #79c0ff;">this</span>.isConverting <span style="color: #ff7b72;">=</span> <span style="color: #79c0ff;">false</span>;</div><div>&nbsp; });</div></div>
+    </code>
+      </din>
+      <ul>
+        <li><strong><code>Tesseract.recognize()</code></strong>: Memanggil fungsi untuk memulai proses OCR pada gambar
+          yang diberikan.</li>
+        <li><strong><code>then()</code></strong>: Menangani hasil konversi dan menyimpan teks yang dihasilkan.</li>
+        <li><strong><code>catch()</code></strong>: Menangani kesalahan yang mungkin terjadi selama proses OCR.</li>
+        <li><strong><code>finally()</code></strong>: Mengatur status konversi kembali ke <code>false</code> setelah
+          proses
+          selesai.</li>
+      </ul>
+      <h2>Kesimpulan</h2>
+      <p class="mt-1 mb-1">Aplikasi OCR ini memberikan cara yang mudah dan efisien untuk mengonversi teks dari gambar
+        menjadi format yang dapat diedit. Dengan fitur pemotongan opsional, pengguna dapat memastikan bahwa hanya bagian
+        gambar yang relevan yang akan diproses, meningkatkan akurasi konversi. Aplikasi ini menggunakan teknologi modern
+        seperti Vue.js dan Tesseract.js untuk memberikan pengalaman pengguna yang responsif dan intuitif.</p>
+  </article>
