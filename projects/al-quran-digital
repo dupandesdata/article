@@ -1,0 +1,88 @@
+<article>
+  <p class="mb-2 last:mb-0">Berikut adalah dokumentasi untuk aplikasi Al-Qur'an Digital yang dibangun menggunakan Vue.js
+    dan Vue Router. Aplikasi ini memungkinkan pengguna untuk mencari dan membaca surah dari Al-Qur'an.</p>
+  <hr>
+  <p class="mb-2 last:mb-0"><strong>Struktur HTML</strong></p>
+  <ul>
+    <li><strong>Header</strong>
+      <ul>
+        <li>Menampilkan judul aplikasi "Al-Qur'an Digital".</li>
+      </ul>
+    </li>
+    <li><strong>Main</strong>
+      <ul>
+        <li>Menampilkan komponen yang sesuai dengan rute yang dipilih.</li>
+      </ul>
+    </li>
+    <li><strong>Footer</strong>
+      <ul>
+        <li>Menampilkan informasi hak cipta.</li>
+      </ul>
+    </li>
+  </ul>
+  <hr>
+  <p class="mb-2 last:mb-0"><strong>Komponen Vue</strong></p>
+  <ol>
+    <li>
+      <p class="mb-2 last:mb-0"><strong>Home Component</strong></p>
+      <ul>
+        <li><strong>Template</strong>: Menampilkan input pencarian dan daftar surah.</li>
+        <li><strong>Fungsi Utama</strong>:
+          <ul>
+            <li>Mengambil data surah dari API.</li>
+            <li>Menyaring surah berdasarkan input pencarian.</li>
+            <li>Menampilkan popup untuk bacaan terakhir jika ada.</li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li>
+      <p class="mb-2 last:mb-0"><strong>Surah Detail Component</strong></p>
+      <ul>
+        <li><strong>Template</strong>: Menampilkan detail surah dan ayat-ayatnya.</li>
+        <li><strong>Fungsi Utama</strong>:
+          <ul>
+            <li>Mengambil detail surah berdasarkan ID.</li>
+            <li>Menampilkan ayat dengan teks Arab, Latin, dan terjemahan.</li>
+            <li>Menyediakan navigasi untuk surah sebelumnya dan selanjutnya.</li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ol>
+  <hr>
+  <p class="mb-2 last:mb-0"><strong>Penggunaan Vue Router</strong></p>
+  <ul>
+    <li><strong>Rute</strong>:
+      <ul>
+        <li><code>/</code>: Menampilkan komponen Home.</li>
+        <li><code>/surah/:id</code>: Menampilkan detail surah berdasarkan ID.</li>
+      </ul>
+    </li>
+  </ul>
+  <hr>
+  <p class="mb-2 last:mb-0"><strong>Fungsi Penting dalam Script</strong></p>
+  <ul>
+    <li><strong>fetchSurahs</strong>: Mengambil data surah dari API.</li>
+    <li><strong>filteredSurahs</strong>: Menghitung surah yang sesuai dengan query pencarian.</li>
+    <li><strong>playAudio</strong>: Memutar audio dari ayat yang dipilih.</li>
+    <li><strong>updateLocalStorage</strong>: Menyimpan surah dan ayat terakhir yang dibaca ke local storage.</li>
+  </ul>
+  <hr>
+  <p class="mb-2 last:mb-0"><strong>Gaya CSS</strong></p>
+  <ul>
+    <li>Menggunakan Tailwind CSS untuk styling.</li>
+    <li>Menyediakan gaya responsif untuk tampilan yang lebih baik di berbagai ukuran layar.</li>
+  </ul>
+  <hr>
+  <p class="mb-2 last:mb-0"><strong>Kesalahan yang Ditemui</strong></p>
+  <ul>
+    <li><strong>404 Client Error</strong>: Terdapat kesalahan saat memuat ikon dari URL yang tidak ditemukan. Pastikan
+      URL ikon yang digunakan valid.</li>
+  </ul>
+  <hr>
+  <p class="mb-2 last:mb-0"><strong>Kesimpulan</strong></p>
+  <p class="mb-2 last:mb-0">Aplikasi Al-Qur'an Digital ini memberikan pengalaman membaca Al-Qur'an yang interaktif dan
+    mudah diakses. Dengan fitur pencarian dan detail surah, pengguna dapat dengan mudah menemukan dan membaca ayat-ayat
+    yang mereka inginkan.</p>
+</article>
