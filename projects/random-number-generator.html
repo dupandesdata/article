@@ -1,0 +1,107 @@
+<article>
+  <p class="mb-2 last:mb-0"><strong>Dokumentasi: Random Number Generator</strong></p>
+  <p class="mb-2 last:mb-0">Dokumentasi ini menjelaskan cara kerja aplikasi <strong>Random Number Generator</strong>
+    yang dibangun menggunakan <strong>Vue.js</strong> dan <strong>Tailwind CSS</strong>. Aplikasi ini memungkinkan
+    pengguna untuk menghasilkan angka acak dalam rentang yang ditentukan, dengan opsi untuk menghasilkan angka unik
+    atau duplikat.</p>
+  <br>
+  <p class="mb-2 last:mb-0"><strong>Struktur HTML</strong></p>
+  <ul>
+    <li>
+      <p class="mb-2 last:mb-0"><strong>DOCTYPE dan Elemen Dasar</strong></p>
+      <ul>
+        <li>Menggunakan <code>&lt;!DOCTYPE html&gt;</code> untuk mendefinisikan dokumen sebagai HTML5.</li>
+        <li>Elemen <code>&lt;html&gt;</code> dengan atribut <code>lang</code> untuk menentukan bahasa dokumen.</li>
+      </ul>
+    </li>
+    <li>
+      <p class="mb-2 last:mb-0"><strong>Bagian <code>&lt;head&gt;</code></strong></p>
+      <ul>
+        <li>Menyertakan meta tag untuk karakter dan viewport.</li>
+        <li>Menyertakan judul halaman.</li>
+        <li>Memuat skrip Vue.js dan Tailwind CSS.</li>
+        <li>Menyertakan gaya CSS untuk animasi dan tampilan.</li>
+      </ul>
+    </li>
+    <li>
+      <p class="mb-2 last:mb-0"><strong>Bagian <code>&lt;body&gt;</code></strong></p>
+      <ul>
+        <li>Elemen utama dengan ID <code>app</code> yang menjadi tempat aplikasi Vue.js.</li>
+        <li>Struktur div untuk menampung elemen input, label, dan tombol.</li>
+      </ul>
+    </li>
+  </ul>
+  <br>
+  <p class="mb-2 last:mb-0"><strong>Fungsi Utama Aplikasi</strong></p>
+  <ul>
+    <li>
+      <p class="mb-2 last:mb-0"><strong>Data</strong></p>
+      <ul>
+        <li><code>min</code>: Nilai minimum untuk rentang angka.</li>
+        <li><code>max</code>: Nilai maksimum untuk rentang angka.</li>
+        <li><code>mode</code>: Mode penghasilan angka (random atau unique).</li>
+        <li><code>result</code>: Menyimpan hasil angka yang dihasilkan.</li>
+        <li><code>usedNumbers</code>: Set untuk menyimpan angka yang sudah digunakan (hanya untuk mode unique).</li>
+      </ul>
+    </li>
+    <li>
+      <p class="mb-2 last:mb-0"><strong>Computed Properties</strong></p>
+      <ul>
+        <li><code>remainingNumbers</code>: Menghitung jumlah angka unik yang tersisa.</li>
+        <li><code>isButtonDisabled</code>: Menentukan apakah tombol "Generate Number" dinonaktifkan.</li>
+      </ul>
+    </li>
+    <li>
+      <p class="mb-2 last:mb-0"><strong>Watchers</strong></p>
+      <ul>
+        <li>Memantau perubahan pada <code>mode</code>, <code>min</code>, dan <code>max</code> untuk mengosongkan
+          <code>usedNumbers</code>.
+        </li>
+      </ul>
+    </li>
+    <li>
+      <p class="mb-2 last:mb-0"><strong>Methods</strong></p>
+      <ul>
+        <li><code>generate()</code>: Menghasilkan angka acak berdasarkan mode yang dipilih.
+          <ul>
+            <li>Jika mode adalah unique dan semua angka telah digunakan, tampilkan alert.</li>
+            <li>Menghasilkan angka acak dan memeriksa apakah angka tersebut sudah digunakan (jika mode unique).</li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+  <br>
+  <p class="mb-2 last:mb-0"><strong>Tampilan Antarmuka</strong></p>
+  <ul>
+    <li>
+      <p class="mb-2 last:mb-0"><strong>Input untuk Rentang Angka</strong></p>
+      <ul>
+        <li>Dua input untuk nilai minimum dan maksimum.</li>
+        <li>Label yang jelas untuk setiap input.</li>
+      </ul>
+    </li>
+    <li>
+      <p class="mb-2 last:mb-0"><strong>Mode Pilihan</strong></p>
+      <ul>
+        <li>Dropdown untuk memilih mode (random atau unique).</li>
+      </ul>
+    </li>
+    <li>
+      <p class="mb-2 last:mb-0"><strong>Tombol Generate</strong></p>
+      <ul>
+        <li>Tombol untuk menghasilkan angka dengan efek hover dan transisi.</li>
+      </ul>
+    </li>
+    <li>
+      <p class="mb-2 last:mb-0"><strong>Hasil</strong></p>
+      <ul>
+        <li>Menampilkan angka yang dihasilkan dengan animasi fade-in.</li>
+        <li>Menampilkan jumlah angka unik yang tersisa jika mode unique dipilih.</li>
+      </ul>
+    </li>
+  </ul>
+  <br>
+  <p class="mb-2 last:mb-0"><strong>Contoh Kode</strong></p>
+  <p class="mb-2 last:mb-0">Berikut adalah contoh kode dari aplikasi:</p>
+</article>
