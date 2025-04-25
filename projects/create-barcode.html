@@ -9,45 +9,9 @@
   <li><strong>Koneksi Internet</strong>: Dibutuhkan untuk API dan dependensi.</li>
 </ul>
 
-<h2>2. Struktur Kode</h2>
-<ul>
-  <li><strong>HTML</strong>: Struktur antarmuka pengguna.</li>
-  <li><strong>CSS</strong>: Menggunakan Tailwind CSS.</li>
-  <li><strong>JavaScript (Vue 3)</strong>: Logika aplikasi.</li>
-</ul>
-
-<h2>3. Cara Menggunakan Aplikasi</h2>
-
-<h3>3.1. Membuka Aplikasi</h3>
-<ol>
-  <li>Simpan kode sebagai <code>.html</code> (misalnya <code>barcode.html</code>).</li>
-  <li>Buka di browser atau gunakan server lokal.</li>
-</ol>
-
-<h3>3.2. Antarmuka Pengguna</h3>
-<ul>
-  <li><strong>Input Teks</strong></li>
-  <li><strong>Dropdown Jenis Barcode</strong></li>
-  <li><strong>Dropdown Format Gambar</strong></li>
-  <li><strong>Tombol "Buat Barcode"</strong></li>
-  <li><strong>Area Hasil & Tombol Download</strong></li>
-  <li><strong>Indikator Loading</strong></li>
-  <li><strong>Pesan Error</strong></li>
-</ul>
-
-<h3>3.3. Langkah-langkah Penggunaan</h3>
-<ol>
-  <li><strong>Pilih Jenis Barcode</strong></li>
-  <li><strong>Pilih Format Gambar</strong></li>
-  <li><strong>Masukkan Data</strong></li>
-  <li><strong>Validasi Input</strong></li>
-  <li><strong>Buat Barcode</strong></li>
-  <li><strong>Lihat Hasil</strong></li>
-  <li><strong>Unduh Barcode</strong></li>
-</ol>
-
-<h3>3.4. Aturan Validasi Input</h3>
-<table>
+<h3>2. Aturan Validasi Input</h3>
+<div class="table-container">
+  <table class="responsive-table">
   <thead>
     <tr>
       <th>Jenis Barcode</th>
@@ -67,8 +31,9 @@
     <tr><td>Aztec</td><td>1-3832 karakter</td><td>AztecFormat</td></tr>
   </tbody>
 </table>
+</div>
 
-<h2>4. Fitur Utama</h2>
+<h2>3. Fitur Utama</h2>
 <ul>
   <li>Responsif</li>
   <li>Validasi Input</li>
@@ -77,7 +42,7 @@
   <li>Unduh Satu Klik</li>
 </ul>
 
-<h2>5. Penanganan Kesalahan</h2>
+<h2>4. Penanganan Kesalahan</h2>
 <ul>
   <li>Input Tidak Valid</li>
   <li>Timeout API</li>
@@ -85,7 +50,7 @@
   <li>Kesalahan Umum</li>
 </ul>
 
-<h2>6. Keterbatasan</h2>
+<h2>5. Keterbatasan</h2>
 <ul>
   <li>Bergantung API</li>
   <li>Butuh Koneksi Internet</li>
