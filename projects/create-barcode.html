@@ -1,0 +1,130 @@
+<article>
+<h1>Dokumentasi Penggunaan Barcode Generator Pro</h1>
+
+<p><strong>Barcode Generator Pro</strong> adalah aplikasi web sederhana untuk menghasilkan berbagai jenis barcode (termasuk QR Code) dengan format gambar yang dapat disesuaikan. Aplikasi ini dibangun menggunakan <strong>Vue 3</strong> dan <strong>Tailwind CSS</strong>, serta memanfaatkan API dari <code>barcode.orcascan.com</code> untuk menghasilkan barcode.</p>
+
+<hr/>
+
+<h2>1. Prasyarat</h2>
+<ul>
+  <li><strong>Browser Modern</strong>: Chrome, Firefox, Safari, Edge (versi terbaru).</li>
+  <li><strong>Koneksi Internet</strong>: Dibutuhkan untuk API dan dependensi.</li>
+</ul>
+
+<h2>2. Struktur Kode</h2>
+<ul>
+  <li><strong>HTML</strong>: Struktur antarmuka pengguna.</li>
+  <li><strong>CSS</strong>: Menggunakan Tailwind CSS.</li>
+  <li><strong>JavaScript (Vue 3)</strong>: Logika aplikasi.</li>
+</ul>
+
+<h2>3. Cara Menggunakan Aplikasi</h2>
+
+<h3>3.1. Membuka Aplikasi</h3>
+<ol>
+  <li>Simpan kode sebagai <code>.html</code> (misalnya <code>barcode.html</code>).</li>
+  <li>Buka di browser atau gunakan server lokal.</li>
+</ol>
+
+<h3>3.2. Antarmuka Pengguna</h3>
+<ul>
+  <li><strong>Input Teks</strong></li>
+  <li><strong>Dropdown Jenis Barcode</strong></li>
+  <li><strong>Dropdown Format Gambar</strong></li>
+  <li><strong>Tombol "Buat Barcode"</strong></li>
+  <li><strong>Area Hasil & Tombol Download</strong></li>
+  <li><strong>Indikator Loading</strong></li>
+  <li><strong>Pesan Error</strong></li>
+</ul>
+
+<h3>3.3. Langkah-langkah Penggunaan</h3>
+<ol>
+  <li><strong>Pilih Jenis Barcode</strong></li>
+  <li><strong>Pilih Format Gambar</strong></li>
+  <li><strong>Masukkan Data</strong></li>
+  <li><strong>Validasi Input</strong></li>
+  <li><strong>Buat Barcode</strong></li>
+  <li><strong>Lihat Hasil</strong></li>
+  <li><strong>Unduh Barcode</strong></li>
+</ol>
+
+<h3>3.4. Aturan Validasi Input</h3>
+<table>
+  <thead>
+    <tr>
+      <th>Jenis Barcode</th>
+      <th>Aturan Validasi</th>
+      <th>Contoh Input</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>QR Code</td><td>1-255 karakter</td><td>https://example.com</td></tr>
+    <tr><td>Code 128</td><td>1-255 karakter ASCII</td><td>ABC123</td></tr>
+    <tr><td>EAN-13</td><td>13 digit angka</td><td>1234567890123</td></tr>
+    <tr><td>UPC-A</td><td>12 digit angka</td><td>123456789012</td></tr>
+    <tr><td>Data Matrix</td><td>1-2335 karakter ASCII</td><td>DataMatrix123</td></tr>
+    <tr><td>Code 93</td><td>1-255 karakter (huruf/angka/simbol)</td><td>CODE93+DATA</td></tr>
+    <tr><td>Interleaved 2 of 5</td><td>Angka genap</td><td>12345678</td></tr>
+    <tr><td>PDF417</td><td>1-925 karakter</td><td>PDF417 Barcode Data</td></tr>
+    <tr><td>Aztec</td><td>1-3832 karakter</td><td>AztecFormat</td></tr>
+  </tbody>
+</table>
+
+<h2>4. Fitur Utama</h2>
+<ul>
+  <li>Responsif</li>
+  <li>Validasi Input</li>
+  <li>Format Fleksibel</li>
+  <li>Feedback Jelas</li>
+  <li>Unduh Satu Klik</li>
+</ul>
+
+<h2>5. Penanganan Kesalahan</h2>
+<ul>
+  <li>Input Tidak Valid</li>
+  <li>Timeout API</li>
+  <li>Gagal Memuat Gambar</li>
+  <li>Kesalahan Umum</li>
+</ul>
+
+<h2>6. Keterbatasan</h2>
+<ul>
+  <li>Bergantung API</li>
+  <li>Butuh Koneksi Internet</li>
+  <li>Ukuran Gambar dibatasi 250px (tampilan)</li>
+  <li>Tidak bisa digunakan offline</li>
+</ul>
+
+<h2>7. Penyesuaian dan Pengembangan</h2>
+<ul>
+  <li>Ganti API</li>
+  <li>Tambah Jenis Barcode</li>
+  <li>Modifikasi Desain</li>
+  <li>Fitur Tambahan (copy, resize, dll)</li>
+</ul>
+
+<h2>8. Contoh Penggunaan</h2>
+<ol>
+  <li>
+    <strong>QR Code:</strong><br/>
+    Pilih QR Code → Masukkan <code>https://example.com</code> → Pilih PNG → Klik Buat → Unduh
+  </li>
+  <li>
+    <strong>EAN-13:</strong><br/>
+    Pilih EAN-13 → Masukkan <code>1234567890123</code> → Pilih SVG → Klik Buat → Unduh
+  </li>
+</ol>
+
+<h2>9. Catatan Penting</h2>
+<ul>
+  <li>Jangan masukkan data sensitif</li>
+  <li>Ikuti lisensi API Orcascan</li>
+  <li>Gunakan CDN atau host lokal jika ingin offline</li>
+</ul>
+
+<h2>10. Kontribusi</h2>
+<ul>
+  <li>Lapor bug/saran melalui GitHub (jika tersedia)</li>
+  <li>Tambahkan fitur baru, validasi, mode offline</li>
+</ul>
+</article>
